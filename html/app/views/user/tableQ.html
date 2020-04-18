@@ -1,0 +1,49 @@
+ <!-- DATA TABLE-->
+ <section class="p-t-20">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="table-responsive table--no-card m-b-30">
+                    <table class="table table-top-campaign text-left">
+		<h3 class="text-left">Quarantine Detail</h3>
+                        <thead class="bg-secondary text-light">
+                            <tr>
+                                <th class="text-center">District</th>
+                                <th class="text-center">Home Quarantine</th>
+                                <th class="text-center">Institutional 
+Quarantine</th>
+                     
+                                <th class="text-center">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach($data['table'] as $entity){
+                                if($entity->district != ""&&$entity->district != 
+"Unknown"){
+                                
+				if($entity->district == "Total")$entity->district 
+= "Total";
+				$loc = $entity->quarantined_home + 
+$entity->quarantined_government ;
+                               echo '
+                            <tr>
+                                <td class="text-center" ><a href="#" 
+id="'.$entity->district.'"  >'.$entity->district.'</a></td>
+                                <td class="text-center" 
+style="color:blue;"><a>'.$entity->quarantined_home.'</a></td>
+                                <td class="text-center" 
+style="color:green;">'.$entity->quarantined_government.'</td>
+                              
+                  		<td class="text-center" 
+style="color:black;">'.$loc.'</a></td>
+  </tr> ';}
+                        }?>
+			
+                        </tbody>
+                    </table>
+                   
+                </div>
+            </div>
+            
+        </div>
+    </div> </section> <!-- END DATA TABLE-->

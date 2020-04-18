@@ -1,0 +1,50 @@
+ <!-- DATA TABLE-->
+ <section class="p-t-20">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="table-responsive table--no-card m-b-30">
+			<h2></h2>
+                    <table class="table table-top-campaign">
+                       <h3 class="text-left">COVID Cases Detail</h3>
+			 <thead class="bg-secondary text-light">
+                            <tr>
+                                <th class="text-center">District</th>
+                                <th class="text-center">Active</th>
+                                <th class="text-center">Recovered</th>
+                                <th class="text-center">Death</th>
+                                <th class="text-center">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach($data['table'] as $entity){
+                                if($entity->district != ""&&$entity->district != 
+"Unknown"){
+                                
+				if($entity->district == "Total")$entity->district 
+= "Total";
+				$loc = $entity->confirmed + $entity->recovered + 
+$entity->deceased ;
+                               echo '
+                            <tr>
+                                <td class="text-center" ><a href="#" 
+id="'.$entity->district.'" >'.$entity->district.'</a></td>
+                                <td class="text-center" 
+style="color:blue;"><a>'.$entity->confirmed.'</a></td>
+                                <td class="text-center" 
+style="color:green;">'.$entity->recovered.'</td>
+                                <td class="text-center" 
+style="color:red;">'.$entity->deceased.'</a></td>
+                  		<td class="text-center" 
+style="color:black;">'.$loc.'</a></td>
+  </tr> ';}
+                        }?>
+			
+                        </tbody>
+                    </table>
+                   
+                </div>
+            </div>
+            
+        </div>
+    </div> </section>
